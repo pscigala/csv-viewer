@@ -1,10 +1,10 @@
 # CSV Viewer
 Simple console CSV File Viewer written in Python.
 
-#Why?
+# Why?
 Just for simple Python training purposes
 
-#Example usage
+# Example usage
 ````
 python3 csvViewer.py testfile.csv
 ````
