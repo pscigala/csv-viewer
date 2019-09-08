@@ -71,9 +71,11 @@ class CSVData(object):
 
 
 class CSVDataTest(unittest.TestCase):
+    TEST_FILE = 'testfile.csv'
+    ENCODING = 'utf-8'
 
     def test_csv_parse_header(self):
-        data = CSVData(filepath='testfile.csv', encoding='utf-8')
+        data = CSVData(filepath=self.TEST_FILE, encoding=self.ENCODING)
         header = data.header
 
         self.assertEqual('1', header[0])
@@ -82,7 +84,7 @@ class CSVDataTest(unittest.TestCase):
         self.assertEqual('4', header[3])
 
     def test_csv_parse_rows(self):
-        data = CSVData(filepath='testfile.csv', encoding='utf-8')
+        data = CSVData(filepath=self.TEST_FILE, encoding=self.ENCODING)
         rows = data.rows
 
         self.assertEqual('row1-col1', rows[0][0])
@@ -96,7 +98,7 @@ class CSVDataTest(unittest.TestCase):
         self.assertEqual('row4-col4', rows[3][3])
 
     def test_csv_column_by_header_name(self):
-        data = CSVData(filepath='testfile.csv', encoding='utf-8')
+        data = CSVData(filepath=self.TEST_FILE, encoding=self.ENCODING)
         column1 = data.get_column('1')
         column4 = data.get_column('4')
 
@@ -111,7 +113,7 @@ class CSVDataTest(unittest.TestCase):
         self.assertEqual('row4-col4', column4[3])
 
     def test_csv_column_by_header_index(self):
-        data = CSVData(filepath='testfile.csv', encoding='utf-8')
+        data = CSVData(filepath=self.TEST_FILE, encoding=self.ENCODING)
         column1 = data.get_column_by_index(0)
         column4 = data.get_column_by_index(3)
 
